@@ -14,10 +14,12 @@
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="Components\" />
+    <None Remove="Components\Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Components\" />
+    <Folder Include="Components\Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BethanysPieShopHRM.Shared\BlazorHRM.Shared.csproj">

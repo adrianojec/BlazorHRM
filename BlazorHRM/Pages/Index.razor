@@ -1,5 +1,10 @@
 ﻿@page "/"
 
-    <h1 class="page-title">Welcome to BlazorHRM!</h1>
-    <br />
+<h1 class="page-title">Welcome to BlazorHRM!</h1>
+<br />
+
+@foreach (var widgetType in Widgets)
+{
+    <DynamicComponent Type="widgetType"></DynamicComponent>
+}
 
