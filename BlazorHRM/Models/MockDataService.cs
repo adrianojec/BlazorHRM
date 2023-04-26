@@ -7,7 +7,9 @@ namespace BlazorHRM.Models
   public class MockDataService
   {
     private static List<Employee>? _employees = default!;
+
     private static List<JobCategory> _jobCategories = default!;
+
     private static List<Country> _countries = default!;
 
     public static List<Employee> Employees
@@ -73,7 +75,30 @@ namespace BlazorHRM.Models
         CountryId = _countries[1].CountryId
       };
 
-      return new List<Employee>() { e1, e2 };
+      var e3 = new Employee
+      {
+        MaritalStatus = MaritalStatus.Married,
+        BirthDate = new DateTime(1979, 1, 16),
+        City = "Antwerp",
+        Email = "gill@bethanyspieshop.com",
+        EmployeeId = 2,
+        FirstName = "Gill",
+        LastName = string.Empty,
+        Gender = Gender.Male,
+        PhoneNumber = "33999909923",
+        Smoker = false,
+        Street = "New Street",
+        Zip = "2000",
+        JobCategory = _jobCategories[1],
+        JobCategoryId = _jobCategories[1].JobCategoryId,
+        Comment = "Lorem Ipsum",
+        ExitDate = null,
+        JoinedDate = new DateTime(2017, 12, 24),
+        Country = _countries[1],
+        CountryId = _countries[1].CountryId
+      };
+
+      return new List<Employee>() { e1, e2, e3 };
     }
 
     private static List<JobCategory> InitializeMockJobCategories()
