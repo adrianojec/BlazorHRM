@@ -1,11 +1,19 @@
 ﻿using System;
 using BlazorHRM.Models;
+using BlazorHRM.Services;
 using BlazorHRM.Shared.Domain;
+using BlazorHRM.State;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorHRM.Pages
 {
   public partial class EmployeeOverview
   {
+    [Inject]
+    public IEmployeeDataService? EmployeeDataService { get; set; }
+
+    [Inject]
+    public AppState? AppState { get; set; }
 
     public List<Employee>? Employees { get; set; } = default!;
 
@@ -13,9 +21,16 @@ namespace BlazorHRM.Pages
 
     private string Title = "Employee Overview";
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-      Employees = MockDataService.Employees;
+      if (AppState.Employees.Count == 0)
+      {
+        Employees = await EmployeeDataService.GetAll();
+      }
+      else
+      {
+        Employees = AppState.Employees;
+      }
     }
 
     public void ShowQuickViewModal(Employee selectedEmployee)

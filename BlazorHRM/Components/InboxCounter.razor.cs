@@ -2,18 +2,19 @@
 using BlazorHRM.State;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorHRM.Components.Widgets
+namespace BlazorHRM.Components
 {
-  public partial class InboxWidget
+  public partial class InboxCounter
   {
     [Inject]
     public AppState? AppState { get; set; }
 
-    public int MessageCount { get; set; }
+    private int MessageCount;
 
     protected override void OnInitialized()
     {
-      MessageCount = AppState.MessageCount;
+      MessageCount = new Random().Next(10);
+      AppState.MessageCount = MessageCount;
     }
   }
 }

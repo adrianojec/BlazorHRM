@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.16" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,12 +17,14 @@
     <None Remove="Components\" />
     <None Remove="Components\Widgets\" />
     <None Remove="Services\" />
+    <None Remove="State\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Components\" />
     <Folder Include="Components\Widgets\" />
     <Folder Include="Services\" />
+    <Folder Include="State\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BethanysPieShopHRM.Shared\BlazorHRM.Shared.csproj">
