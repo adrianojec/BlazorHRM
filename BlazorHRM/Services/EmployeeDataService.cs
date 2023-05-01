@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Text.Json;
 using BlazorHRM.Shared.Domain;
 using BlazorHRM.State;
@@ -8,29 +9,33 @@ namespace BlazorHRM.Services
   public class EmployeeDataService : IEmployeeDataService
   {
     private readonly HttpClient _httpClient;
-    private readonly AppState _appState;
 
-    public EmployeeDataService(HttpClient httpClient, AppState appState)
+    public EmployeeDataService(HttpClient httpClient)
     {
       _httpClient = httpClient;
-      _appState = appState;
     }
 
-    public Task<Employee> Create(Employee employee)
+    public async Task<Employee> Create(Employee employee)
     {
-      throw new NotImplementedException();
+      var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+      var response = await _httpClient.PostAsync("api/employee", employeeJson);
+
+      if (response.IsSuccessStatusCode)
+      {
+        return await JsonSerializer.DeserializeAsync<Employee>(await response.Content.ReadAsStreamAsync());
+      }
+
+      return null;
     }
 
     public async Task<List<Employee>> GetAll()
     {
-      var employees = await JsonSerializer.DeserializeAsync<List<Employee>>(
+      return await JsonSerializer.DeserializeAsync<List<Employee>>(
         await _httpClient.GetStreamAsync($"api/employee"),
         new JsonSerializerOptions()
         {
           PropertyNameCaseInsensitive = true
         });
-      _appState.Employees = employees;
-      return employees;
 
     }
 
@@ -44,9 +49,10 @@ namespace BlazorHRM.Services
         });
     }
 
-    public Task Update(Employee employee)
+    public async Task Update(Employee employee)
     {
-      throw new NotImplementedException();
+      var employeeJson = new StringContent(JsonSerializer.Serialize(employee), Encoding.UTF8, "application/json");
+      await _httpClient.PutAsync("api/employee", employeeJson);
     }
 
     public Task Delete(int employeeId)

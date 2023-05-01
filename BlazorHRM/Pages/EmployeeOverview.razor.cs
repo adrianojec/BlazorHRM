@@ -23,14 +23,7 @@ namespace BlazorHRM.Pages
 
     protected override async Task OnInitializedAsync()
     {
-      if (AppState.Employees.Count == 0)
-      {
-        Employees = await EmployeeDataService.GetAll();
-      }
-      else
-      {
-        Employees = AppState.Employees;
-      }
+      Employees = await EmployeeDataService.GetAll();
     }
 
     public void ShowQuickViewModal(Employee selectedEmployee)
