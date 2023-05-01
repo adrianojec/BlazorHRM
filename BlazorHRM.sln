@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHRM", "BlazorHRM\Blaz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHRM.Shared", "BethanysPieShopHRM.Shared\BlazorHRM.Shared.csproj", "{AEFAE433-29AB-468A-A5EC-42BD0BA932E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHRM.Api", "BlazorHRM.Api\BlazorHRM.Api.csproj", "{49C4FAD6-0840-4354-BD35-98858072C5EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AEFAE433-29AB-468A-A5EC-42BD0BA932E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEFAE433-29AB-468A-A5EC-42BD0BA932E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEFAE433-29AB-468A-A5EC-42BD0BA932E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C4FAD6-0840-4354-BD35-98858072C5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C4FAD6-0840-4354-BD35-98858072C5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C4FAD6-0840-4354-BD35-98858072C5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C4FAD6-0840-4354-BD35-98858072C5EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

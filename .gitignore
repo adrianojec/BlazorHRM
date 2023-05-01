@@ -342,3 +342,7 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+BlazorHRM.Api/BlazorHRM.db
+BlazorHRM.Api/BlazorHRM.db-shm
+BlazorHRM.Api/BlazorHRM.db-wal
+BlazorHRM.Api/Migrations/
